@@ -1,0 +1,267 @@
+/* فونت‌های سفارشی */
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('fonts/Vazirmatn-Medium.woff2') format('woff2');
+    font-weight: 400; /* وزن معمولی */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('fonts/Vazirmatn-Regular.woff2') format('woff2');
+    font-weight: 500; /* وزن متوسط */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('fonts/Vazirmatn-Bold.woff2') format('woff2');
+    font-weight: 700; /* وزن بولد */
+    font-style: normal;
+}
+
+/* کلاس‌های وزنی */
+.medium {
+    font-weight: 500;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+/* استایل پایه برای بدنه */
+body {
+    direction: rtl;
+    font-family: 'Vazirmatn', sans-serif;
+    margin: 0;
+    display: flex;
+    height: 100vh;
+}
+
+/* استایل کانتینر اصلی */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* استایل سایدبار */
+.sidebar {
+    width: 20%;
+    background-color: #f4f4f4;
+    padding: 15px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px;
+    background-color: #e7e7e7;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.sidebar ul li a:hover {
+    background-color: #ddd;
+}
+
+/* استایل محتوای اصلی */
+.content {
+    width: 80%;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* استایل کارت‌ها */
+.card {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.card-title {
+    margin: 0 0 10px 0;
+    font-size: 1.25em;
+}
+
+/* استایل دکمه‌ها */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #333;
+    background-color: #fff;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 5px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/* استایل دکمه‌های خاص */
+.btn-loan {
+    background-image: url('images/icon/cross.png'); /* مسیر تصویر پس‌زمینه */
+}
+
+.btn-add-customer {
+    background-image: url('images/add-customer-background.jpg'); /* مسیر تصویر پس‌زمینه */
+}
+
+.btn-delete-customer {
+    background-image: url('images/delete-customer-background.jpg'); /* مسیر تصویر پس‌زمینه */
+}
+
+/* تغییر استایل دکمه‌ها هنگام هاور */
+.btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* استایل دکمه‌های رنگی */
+.btn-primary {
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.btn-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.btn-info {
+    border-color: #17a2b8;
+    color: #17a2b8;
+}
+
+.btn:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #f8f9fa;
+}
+
+/* استایل جدول‌ها */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #f8f8f8;
+}
+
+/* استایل فرم‌ها */
+.form-group {
+    margin-bottom: 15px;
+    display: inline-block;
+    width: 33%;
+}
+
+label {
+    direction: rtl;
+    text-align: right;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    box-shadow: 0 0 3px 1px #00000038;
+    border: none;
+    border-radius: 9px;
+}
+
+/* استایل دکمه‌های فرم */
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* استایل نتایج */
+.results {
+    margin-top: 20px;
+}
+
+.result-item {
+    margin-bottom: 10px;
+}
+h1{
+    font-size:20px ;}
+/* استایل باکس‌های آماری */
+.stat-box {
+    display: inline-block;
+    width: 23%; /* هر جعبه 23% پهنای صفحه */
+    margin-right: 1%;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* سایه ملایم */
+    text-align: center;
+}
+
+.stat-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.stat-box p {
+    font-size: 24px;
+    color: #007bff;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .stat-box {
+        width: 100%; /* در دستگاه‌های کوچک، جعبه‌ها کل عرض را بگیرند */
+        margin-bottom: 20px;
+    }
+}
