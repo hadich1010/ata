@@ -2,14 +2,29 @@
 $pageTitle = "پنل مدیریت";
 include('header.php'); 
 include('functions.php');
-?>
+include_once('./lib/jdf.php');//:افزودن فایل نرم افزار
 
-<h1>به بخش مدیریت مشتریان خوش آمدید</h1>
+// به‌دست آوردن مقادیر تاریخ شمسی
+$years = jdate('Y');
+$month = jdate('m');
+$day = jdate('d');
+
+// ذخیره مقادیر در یک آرایه
+$dateArray = array(
+    'year' => $years,
+    'month' => $month,
+    'day' => $day,
+);
+
+
+?>
 
 <div class="dashboard">
         <h1>به بخش مدیریت مشتریان خوش آمدید</h1>
-        
-        <div class="stat-box">
+        <span class="date"><?php // نمایش مقادیر آرایه
+echo "تاریخ امروز: " . $dateArray['year'] . "/" . $dateArray['month'] . "/" . $dateArray['day'];?></span>
+<div class="row standard-box">
+    <div class="stat-box">
             <h3>مجموع مشتریان</h3>
             <p><?php echo getTotalCustomers(); ?> مشتری</p>
         </div>
@@ -26,5 +41,7 @@ include('functions.php');
             <p><?php echo getCompletedCustomers(); ?> مشتری</p>
         </div>
     </div>
+    </div>
+
 
 <?php include('footer.php'); ?>

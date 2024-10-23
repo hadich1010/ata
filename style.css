@@ -91,6 +91,21 @@ body {
     overflow-y: auto;
 }
 
+.dashboard {
+    width: 100%;
+}
+span.date {
+    direction: ltr;
+    clear: both;
+    float: left;
+    padding: 25px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.standard-box {
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 30px;
+}
 /* استایل کارت‌ها */
 .card {
     margin-bottom: 20px;
