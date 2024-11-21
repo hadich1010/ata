@@ -129,7 +129,7 @@ span.date {
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    color: #333;
+    color: hsl(126, 100%, 50%);
     background-color: #fff;
     font-weight: bold;
     text-align: center;
@@ -140,6 +140,11 @@ span.date {
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border:0px;
+}
+.btn-add:hover {
+    background-color: #28a745 !important;
 }
 
 /* استایل دکمه‌های خاص */
@@ -207,7 +212,16 @@ th {
     display: inline-block;
     width: 33%;
 }
-
+.form-select {
+    background-position: left 10px center;
+    padding: 4px 8px;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    box-shadow: 0 0 3px 1px #00000038;
+    border: none;
+    border-radius: 9px;
+}
 label {
     direction: rtl;
     text-align: right;
@@ -255,10 +269,9 @@ h1{
     width: 23%; /* هر جعبه 23% پهنای صفحه */
     margin-right: 1%;
     background-color: #ffffff;
-    border: 1px solid #ddd;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* سایه ملایم */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* سایه ملایم */
     text-align: center;
 }
 

@@ -3,18 +3,7 @@ $pageTitle = "پنل مدیریت";
 include('header.php'); 
 include('functions.php');
 include_once('./lib/jdf.php');//:افزودن فایل نرم افزار
-
-// به‌دست آوردن مقادیر تاریخ شمسی
-$years = jdate('Y');
-$month = jdate('m');
-$day = jdate('d');
-
-// ذخیره مقادیر در یک آرایه
-$dateArray = array(
-    'year' => $years,
-    'month' => $month,
-    'day' => $day,
-);
+include('time-bar.php');  // درج فایل هدر
 
 
 ?>

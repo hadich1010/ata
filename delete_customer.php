@@ -13,7 +13,7 @@ if (isset($_GET['message'])) {
 }
 
 // اتصال به دیتابیس و دریافت لیست مشتریان
-$sql = "SELECT id, full_name, phone_number, national_id, registration_date FROM customers";
+$sql = "SELECT id, full_name, phone_number, national_id, custom_datetime FROM customers";
 $result = $conn->query($sql);
 ?>
 
@@ -40,7 +40,7 @@ $result = $conn->query($sql);
                             <td><?php echo htmlspecialchars($row['full_name']); ?></td>
                             <td><?php echo htmlspecialchars($row['phone_number']); ?></td>
                             <td><?php echo htmlspecialchars($row['national_id']); ?></td>
-                            <td><?php echo htmlspecialchars($row['registration_date']); ?></td>
+                            <td><?php echo htmlspecialchars($row['custom_datetime']); ?></td>
                             <td>
                                 <button type="submit" name="delete_id" value="<?php echo htmlspecialchars($row['id']); ?>">حذف</button>
                             </td>

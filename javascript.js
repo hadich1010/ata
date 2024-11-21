@@ -53,3 +53,14 @@ function printPage() {
 function goBack() {
     window.history.back();
 }
+
+ // تنظیمات Jalali Datepicker برای انتخاب تاریخ و زمان
+jalaliDatepicker.startWatch({
+    minDate: "today",  // حداقل تاریخ قابل انتخاب: امروز
+    maxDate: "1403/01/01",  // حداکثر تاریخ قابل انتخاب: 1 فروردین 1403
+    autoHide: true,  // بستن خودکار پس از انتخاب تاریخ
+    showTodayBtn: true,  // نمایش دکمه امروز
+    time: true,  // فعال‌سازی انتخاب زمان
+    hasSecond: false  // غیرفعال کردن ثانیه‌ها در انتخاب زمان
+});
+</script>
