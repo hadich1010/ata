@@ -5,7 +5,7 @@ include('header.php');
 require 'connections.php'; // فرض بر این است که اتصال به پایگاه داده در این فایل قرار دارد
 
 // گرفتن اطلاعات مشتریان
-$sql = "SELECT id, full_name, phone_number, national_id, custom_datetime, status, additional_info FROM customers";
+$sql = "SELECT id, full_name, phone_number, national_id, status, consultation_status, job, additional_info, customer_image, registration_date, registration_time, created_at FROM customers";
 $result = $conn->query($sql);
 ?>
 
@@ -20,6 +20,8 @@ $result = $conn->query($sql);
                     <th scope="col" class="text-center">شماره تماس</th>
                     <th scope="col" class="text-center">کد ملی</th>
                     <th scope="col" class="text-center">تاریخ ثبت نام</th>
+                    <th scope="col" class="text-center">تاریخ مراجعه</th>
+                    <th scope="col" class="text-center">ساعت مراجعه</th>
                     <th scope="col" class="text-center">وضعیت</th>
                     <th scope="col" class="text-center">اطلاعات بیشتر</th>
                     <th scope="col" class="text-center">پاک کردن</th> <!-- ستون حذف -->
@@ -37,7 +39,9 @@ $result = $conn->query($sql);
                         echo "<td class='text-center align-middle'>" . $row["full_name"] . "</td>";
                         echo "<td class='text-center align-middle'>" . $row["phone_number"] . "</td>";
                         echo "<td class='text-center align-middle'>" . $row["national_id"] . "</td>";
-                        echo "<td class='text-center align-middle'>" . $row["custom_datetime"] . "</td>";
+                        echo "<td class='text-center align-middle'>" . $row["created_at"] . "</td>";
+                        echo "<td class='text-center align-middle'>" . $row["registration_date"] . "</td>";
+                        echo "<td class='text-center align-middle'>" . $row["registration_time"] . "</td>";
                         echo "<td class='text-center align-middle'>" . $row["status"] . "</td>";
                         echo "<td class='text-center align-middle'>
                                 <a href='#' data-toggle='modal' data-target='#modal" . $row["id"] . "'>" . nl2br($additionalInfo) . "</a>

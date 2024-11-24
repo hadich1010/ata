@@ -1,9 +1,9 @@
 <?php 
 $pageTitle = "پنل مدیریت";
-include('header.php'); 
+require_once('header.php');  // درج فایل هدر
+require_once('time-bar.php');  // درج فایل زمان 
 include('functions.php');
-include_once('./lib/jdf.php');//:افزودن فایل نرم افزار
-include('time-bar.php');  // درج فایل هدر
+require_once('time-bar.php');  // درج فایل هدر
 
 
 ?>
