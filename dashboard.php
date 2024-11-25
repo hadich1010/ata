@@ -1,11 +1,9 @@
 <?php 
 $pageTitle = "پنل مدیریت";
-require_once('header.php');  // درج فایل هدر
+require_once ('header.php');
 require_once('time-bar.php');  // درج فایل زمان 
 include('functions.php');
 require_once('time-bar.php');  // درج فایل هدر
-
-
 ?>
 
 <div class="dashboard">

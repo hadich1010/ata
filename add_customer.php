@@ -68,11 +68,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <div class="container-fluid">
-    <div class="row bg-primary">
-        <div class="col-md-5">
+    <div class="row bg-primary pt-3">
+        <div class="col-md-6">
             <p>به بخش مدیریت مشتریان خوش آمدید</p>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-6 text-start">
             <p>
                 <?php 
                 // نمایش مقادیر آرایه تاریخ شمسی
@@ -81,13 +81,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </p>
         </div>
     </div>
-    <div class="col-12 text-end bg-danger">
-
-
-    </div>
+  
 
     <!-- فرم افزودن مشتری -->
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data" class="mt-2">
         <div class="row">
             <div class="col-12 col-md-6 mb-3">
                 <label for="full_name" class="form-label">نام و نام خانوادگی:</label>
@@ -114,6 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="consultation_status" class="form-label">وضعیت مشاوره:</label>
                 <select class="form-select" id="consultation_status" name="consultation_status">
                     <option value="مشاوره تلفنی">مشاوره تلفنی</option>
+                    <option value="مشاوره تلفنی نامشخص">مشاوره تلفنی نامشخص</option>
                     <option value="مراجعه به دفتر">مراجعه به دفتر</option>
                     <option value="عقد قرارداد">عقد قرارداد</option>
                     <option value="سفته تحویل شد">سفته تحویل شد</option>
@@ -141,8 +139,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="customer_image" class="form-label">تصویر مشتری:</label>
                 <input type="file" class="form-control" id="customer_image" name="customer_image[]" multiple>
             </div>
-            <div class="col-12 text-center">
-                <button type="submit" class="btn btn-outline-success">افزودن مشتری</button>
+            <div class="col-12 text-start">
+                <button type="submit" class="btn btn-primary">افزودن مشتری</button>
             </div>
         </div>
     </form>
