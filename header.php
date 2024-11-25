@@ -8,10 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="dist/jalalidatepicker.css" />
     <link rel="stylesheet" href="style.css">
-    
-    <!-- اضافه کردن CSS مربوط به Persian Datepicker -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-datepicker/dist/css/persian-datepicker.min.css"> -->
-    
     <title><?php echo $pageTitle; ?></title>
 </head>
 <body>

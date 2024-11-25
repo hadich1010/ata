@@ -67,67 +67,87 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!-- فرم افزودن مشتری -->
-<form action="" method="POST" enctype="multipart/form-data">
-    <div class="row">
-        <div class="col-12 col-md-6 mb-3">
-            <label for="full_name" class="form-label">نام و نام خانوادگی:</label>
-            <input type="text" class="form-control" id="full_name" name="full_name" required>
+<div class="container-fluid">
+    <div class="row bg-primary">
+        <div class="col-md-5">
+            <p>به بخش مدیریت مشتریان خوش آمدید</p>
         </div>
-        <div class="col-12 col-md-6 mb-3">
-            <label for="phone_number" class="form-label">شماره تماس:</label>
-            <input type="text" class="form-control" id="phone_number" name="phone_number" required>
-        </div>
-        <div class="col-12 col-md-6 mb-3">
-            <label for="national_id" class="form-label">کد ملی:</label>
-            <input type="text" class="form-control" id="national_id" name="national_id" required>
-        </div>
-        <div class="col-12 col-md-6 mb-3">
-            <label for="status" class="form-label">نوع خدمات:</label>
-            <select class="form-select" id="status" name="status">
-                <option value="" selected disabled>انتخاب نوع خدمات</option>
-                <option value="وام رسالت">وام رسالت</option>
-                <option value="وام مهر">وام مهر</option>
-                <option value="دسته چک">دسته چک</option>
-            </select>
-        </div>
-        <div class="col-12 col-md-6 mb-3">
-            <label for="consultation_status" class="form-label">وضعیت مشاوره:</label>
-            <select class="form-select" id="consultation_status" name="consultation_status">
-                <option value="مشاوره تلفنی">مشاوره تلفنی</option>
-                <option value="مراجعه به دفتر">مراجعه به دفتر</option>
-                <option value="عقد قرارداد">عقد قرارداد</option>
-                <option value="سفته تحویل شد">سفته تحویل شد</option>
-                <option value="افتتاح حساب و تکمیل مدارک">افتتاح حساب و تکمیل مدارک</option>
-                <option value="اعتبار سنجی شد">اعتبار سنجی شد</option>
-                <option value="ثبت ضمانت بانکی">ثبت ضمانت بانکی</option>
-                <option value="پرونده تکمیل شد">پرونده تکمیل شد</option>
-                <option value="عودت اسناد ضمانتی">عودت اسناد ضمانتی</option>
-            </select>
-        </div>
-        <div class="col-12 col-md-6 mb-3">
-            <label for="custom_datetime" class="form-label">تاریخ و ساعت:</label>
-            <input type="text" id="custom_datetime" name="custom_datetime" class="form-control"
-                placeholder="تاریخ و زمان را انتخاب کنید" data-jdp />
-        </div>
-        <div class="col-12 col-md-6 mb-3">
-            <label for="job" class="form-label">شغل:</label>
-            <input type="text" class="form-control" id="job" name="job" required>
-        </div>
-        <div class="col-12 mb-3">
-            <label for="additional_info" class="form-label">اطلاعات بیشتر:</label>
-            <textarea class="form-control" id="additional_info" name="additional_info" rows="3"></textarea>
-        </div>
-        <div class="col-12 mb-3">
-            <label for="customer_image" class="form-label">تصویر مشتری:</label>
-            <input type="file" class="form-control" id="customer_image" name="customer_image[]" multiple>
-        </div>
-        <div class="col-12 text-center">
-            <button type="submit" class="btn btn-outline-success">افزودن مشتری</button>
+        <div class="col-md-5">
+            <p>
+                <?php 
+                // نمایش مقادیر آرایه تاریخ شمسی
+                echo "تاریخ امروز: " . $dateArray['year'] . "/" . $dateArray['month'] . "/" . $dateArray['day']; 
+                ?>
+            </p>
         </div>
     </div>
-</form>
+    <div class="col-12 text-end bg-danger">
+
+
+    </div>
+
+    <!-- فرم افزودن مشتری -->
+    <form action="" method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-12 col-md-6 mb-3">
+                <label for="full_name" class="form-label">نام و نام خانوادگی:</label>
+                <input type="text" class="form-control" id="full_name" name="full_name" required>
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+                <label for="phone_number" class="form-label">شماره تماس:</label>
+                <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+                <label for="national_id" class="form-label">کد ملی:</label>
+                <input type="text" class="form-control" id="national_id" name="national_id" required>
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+                <label for="status" class="form-label">نوع خدمات:</label>
+                <select class="form-select" id="status" name="status">
+                    <option value="" selected disabled>انتخاب نوع خدمات</option>
+                    <option value="وام رسالت">وام رسالت</option>
+                    <option value="وام مهر">وام مهر</option>
+                    <option value="دسته چک">دسته چک</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+                <label for="consultation_status" class="form-label">وضعیت مشاوره:</label>
+                <select class="form-select" id="consultation_status" name="consultation_status">
+                    <option value="مشاوره تلفنی">مشاوره تلفنی</option>
+                    <option value="مراجعه به دفتر">مراجعه به دفتر</option>
+                    <option value="عقد قرارداد">عقد قرارداد</option>
+                    <option value="سفته تحویل شد">سفته تحویل شد</option>
+                    <option value="افتتاح حساب و تکمیل مدارک">افتتاح حساب و تکمیل مدارک</option>
+                    <option value="اعتبار سنجی شد">اعتبار سنجی شد</option>
+                    <option value="ثبت ضمانت بانکی">ثبت ضمانت بانکی</option>
+                    <option value="پرونده تکمیل شد">پرونده تکمیل شد</option>
+                    <option value="عودت اسناد ضمانتی">عودت اسناد ضمانتی</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+                <label for="custom_datetime" class="form-label">تاریخ و ساعت:</label>
+                <input type="text" id="custom_datetime" name="custom_datetime" class="form-control"
+                    placeholder="تاریخ و زمان را انتخاب کنید" data-jdp />
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+                <label for="job" class="form-label">شغل:</label>
+                <input type="text" class="form-control" id="job" name="job" required>
+            </div>
+            <div class="col-12 mb-3">
+                <label for="additional_info" class="form-label">اطلاعات بیشتر:</label>
+                <textarea class="form-control" id="additional_info" name="additional_info" rows="3"></textarea>
+            </div>
+            <div class="col-12 mb-3">
+                <label for="customer_image" class="form-label">تصویر مشتری:</label>
+                <input type="file" class="form-control" id="customer_image" name="customer_image[]" multiple>
+            </div>
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-outline-success">افزودن مشتری</button>
+            </div>
+        </div>
+    </form>
 </div>
+
 
 <?php 
 include('footer.php');  // درج فایل فوتر

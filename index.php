@@ -1,6 +1,6 @@
 <?php 
 $pageTitle = "صفحه اصلی";
-include('header.php'); 
+require_once('header.php'); 
 ?>
 <div class="sidebar">
         <h2>منو</h2>
@@ -12,7 +12,7 @@ include('header.php');
             <li><a href="edit_customer.php" target="contentFrame">ویرایش مشتری</a></li>
         </ul>
     </div>
-    <div class="content">
+    <div class="flex-grow-1">
         <iframe name="contentFrame" src="dashboard.php" style="width: 100%; height: 100vh; border: none;">
         
         </iframe>
