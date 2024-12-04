@@ -4,9 +4,9 @@
 
     <!-- اضافه کردن JS مربوط به Timepicker -->
      <!-- لینک به فایل‌های JS -->
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="dist/jalalidatepicker.js"></script>
+    <script src="/ata/js/jquery-3.5.1.min.js"></script>
+    <script src="/ata/js/bootstrap.min.js"></script>
+    <script src="/ata/dist/jalalidatepicker.js"></script>
     <!-- اسکریپت‌های سفارشی -->
     <script src="javascript.js"></script>
     <script>

@@ -9,7 +9,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $full_name = htmlspecialchars(trim($_POST['full_name']));
     $phone_number = htmlspecialchars(trim($_POST['phone_number']));
     $national_id = htmlspecialchars(trim($_POST['national_id']));
-    $status = htmlspecialchars(trim($_POST['status']));
+    if (isset($_POST['status']) && is_array($_POST['status'])) {
+        // پردازش آرایه چک‌باکس‌ها
+        $statuses = array_map(function ($status) {
+            return htmlspecialchars(trim($status)); // پردازش هر مقدار چک‌باکس
+        }, $_POST['status']);
+
+        // تبدیل آرایه به یک رشته با جداکننده کاما
+        $status = implode(", ", $statuses);
+    } else {
+        $status = "هیچ گزینه‌ای انتخاب نشده است.";
+    }
     $consultation_status = htmlspecialchars(trim($_POST['consultation_status']));
     $job = htmlspecialchars(trim($_POST['job'])); 
     $additional_info = htmlspecialchars(trim($_POST['additional_info']));
@@ -81,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </p>
         </div>
     </div>
-  
+
 
     <!-- فرم افزودن مشتری -->
     <form action="" method="POST" enctype="multipart/form-data" class="mt-2">
@@ -99,14 +109,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" class="form-control" id="national_id" name="national_id" required>
             </div>
             <div class="col-12 col-md-6 mb-3">
-                <label for="status" class="form-label">نوع خدمات:</label>
-                <select class="form-select" id="status" name="status">
-                    <option value="" selected disabled>انتخاب نوع خدمات</option>
-                    <option value="وام رسالت">وام رسالت</option>
-                    <option value="وام مهر">وام مهر</option>
-                    <option value="دسته چک">دسته چک</option>
-                </select>
+                <label class="form-label">نوع خدمات:</label>
+                <div class="d-flex align-items-center">
+                    <label for="form-check-input" class="form-label"> وام رسالت:</label>
+                    <input class="form-check-input p-3 m-3" type="checkbox" name="status[]" value="وام رسالت">
+                    <label for="form-check-input" class="form-label">وام مهر:</label>
+                    <input class="form-check-input p-3 m-3" type="checkbox" name="status[]" value="وام مهر">
+                    <label for="form-check-input" class="form-label">دسته چک:</label>
+                    <input class="form-check-input p-3 m-3" type="checkbox" name="status[]" value="دسته چک">
+
+                </div>
             </div>
+
             <div class="col-12 col-md-6 mb-3">
                 <label for="consultation_status" class="form-label">وضعیت مشاوره:</label>
                 <select class="form-select" id="consultation_status" name="consultation_status">

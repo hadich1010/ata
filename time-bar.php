@@ -1,6 +1,5 @@
 <?php
-include_once('./lib/jdf.php'); // افزودن کتابخانه jdf برای تاریخ شمسی
-
+require_once($_SERVER['DOCUMENT_ROOT'] . '/ata/lib/jdf.php');
 // به‌دست آوردن مقادیر تاریخ شمسی
 $years = jdate('Y');  // سال شمسی
 $month = jdate('m');  // ماه شمسی

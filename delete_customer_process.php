@@ -3,7 +3,6 @@ require 'connections.php'; // اتصال به پایگاه داده
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST['id'];
-    $name = $_POST['name'];
 
     // حذف مشتری از پایگاه داده
     $sql = "DELETE FROM customers WHERE id = ?";
@@ -11,16 +10,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("i", $id);
 
     if ($stmt->execute()) {
-        $message = "مشتری با نام $name با موفقیت حذف شد";
+        // بازگشت به لیست مشتریان با پیام موفقیت
+        header("Location: view_customer.php?message=success");
+        exit();
     } else {
-        $message = "خطا در حذف مشتری: " . $conn->error;
+        // بازگشت به لیست مشتریان با پیام خطا
+        header("Location: view_customer.php?message=error");
+        exit();
     }
 
     $stmt->close();
     $conn->close();
-
-    // بازگشت به لیست مشتریان با پیام موفقیت
-    header("Location: view_customer.php?message=" . urlencode($message));
-    exit();
 }
 ?>

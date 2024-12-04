@@ -26,6 +26,7 @@ class Database {
         if (self::$instance === null) {
             self::$instance = new Database();
         }
+        var_dump(self::$instance);
         return self::$instance;
     }
 
