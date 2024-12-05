@@ -33,6 +33,21 @@ if ($conn->query($sql) === TRUE) {
     echo "خطا در ایجاد جدول: " . $conn->error;
 }
 
+// کد SQL برای ایجاد جدول users با مقادیر پیش‌فرض
+$sql_users = "CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE DEFAULT 'admin',  -- مقدار پیش‌فرض 'admin' برای نام کاربری
+    password VARCHAR(255) DEFAULT 'admin',       -- مقدار پیش‌فرض 'admin' برای پسورد
+    role ENUM('admin', 'user', 'vip') DEFAULT 'admin',  -- مقدار پیش‌فرض 'admin' برای نقش
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);";
+
+// اجرای دستور SQL برای ایجاد جدول users
+if ($conn->query($sql_users) === TRUE) {
+    echo "جدول 'users' با موفقیت ایجاد شد.";
+} else {
+    echo "خطا در ایجاد جدول users: " . $conn->error;
+}
 // پرس‌وجو برای وارد کردن داده‌ها
 $sql_insert = "INSERT INTO customers (full_name, phone_number, national_id, status, consultation_status, job, additional_info, customer_image, registration_date, registration_time, created_at)
               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";

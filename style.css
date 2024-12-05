@@ -20,6 +20,34 @@
     font-style: normal;
 }
 
+/* استفاده از فونت و تنظیم اندازه‌ها با rem */
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 1rem; /* معادل 16px به طور پیش‌فرض */
+    line-height: 1.5rem; /* فاصله خط برابر 1.5 برابر اندازه فونت */
+}
+
+h1 {
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 2rem; /* اندازه فونت 2 برابر اندازه پایه */
+    font-weight: 700; /* بولد */
+}
+
+h2 {
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 1.75rem; /* اندازه فونت 1.75 برابر اندازه پایه */
+    font-weight: 500; /* متوسط */
+}
+
+p {
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 1rem; /* اندازه فونت برابر با اندازه پایه */
+}
+
+small {
+    font-size: 0.875rem; /* اندازه فونت کوچکتر از اندازه پایه */
+}
+
 /* کلاس‌های وزنی */
 .medium {
     font-weight: 500;

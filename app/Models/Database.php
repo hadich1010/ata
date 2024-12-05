@@ -32,7 +32,9 @@ class Database {
     }
 
  
-
+    public function getConnection() {
+        return $this->conn;
+    }
     // متد برای بستن اتصال به پایگاه داده
     public function close() {
         $this->conn = null;
