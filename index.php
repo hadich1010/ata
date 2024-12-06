@@ -38,6 +38,8 @@ if ($_SESSION['role'] == 'admin') {
     <a href="http://localhost/ata/APP/views/dashboard/logout.php">خروج از حساب</a>
     </br>
     <a href="http://localhost/ata/APP/views/dashboard/login.php">لطفا وارد شوید.</a>
+    </br>
+    <a href="http://localhost/ata/pdf.php">چاپ pdf</a>
 </div>
 <div class="flex-grow-1">
     <iframe name="contentFrame" src="dashboard.php" style="width: 100%; height: 100vh; border: none;">
@@ -66,6 +68,8 @@ if ($_SESSION['role'] == 'admin') {
     <a href="http://localhost/ata/APP/views/dashboard/logout.php">خروج از حساب</a>
     </br>
     <a href="http://localhost/ata/APP/views/dashboard/login.php">لطفا وارد شوید.</a>
+    </br>
+    <a href="http://localhost/ata/pdf.php">چاپ pdf</a>
 </div>
 <div class="flex-grow-1">
     <iframe name="contentFrame" src="dashboard.php" style="width: 100%; height: 100vh; border: none;">

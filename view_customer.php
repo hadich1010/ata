@@ -86,8 +86,14 @@ document.addEventListener('DOMContentLoaded', function() {
                                   <button type='submit' class='btn btn-warning' onclick='return confirm(\"آیا از ویرایش مشتری با شناسه " . $row['id'] . " اطمینان دارید؟\")'>
                                       <i class='fas fa-edit'></i>
                                   </button>
-
                               </form>
+                               <!-- دکمه پرینت -->
+                               <form method='GET' action='pdf.php' target='_blank'>
+                                 <input type='hidden' name='id' value='" . $row["id"] . "'>
+                                 <button type='submit' class='btn btn-primary'>
+                                    <i class='fas fa-print'></i> 
+                                </button>
+                               </form>
                             </td>";
                       echo "</tr>";
                       
