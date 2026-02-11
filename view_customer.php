@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
                               </form>
                               
                               <!-- فرم ویرایش -->
-                              <form method='POST' id='editForm' action='app/controllers/customercontroller.php'>
+                              <form method='POST' id='editForm' action='app/Controllers/CustomerController.php'>
                                   <input type='hidden' name='id' value='" . $row['id'] . "'> <!-- ارسال شناسه مشتری -->
                                   <button type='submit' class='btn btn-warning' onclick='return confirm(\"آیا از ویرایش مشتری با شناسه " . $row['id'] . " اطمینان دارید؟\")'>
                                       <i class='fas fa-edit'></i>

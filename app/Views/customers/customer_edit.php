@@ -1,8 +1,8 @@
 <?php
 $pageTitle = "ویرایش مشتری"; // عنوان صفحه
-$pathmain= $_SERVER['DOCUMENT_ROOT'].'/ata/';
-require_once($pathmain.'header.php');  
-include_once($pathmain.'time-bar.php');
+$rootPath = dirname(__DIR__, 3);
+require_once $rootPath . '/header.php';
+include_once $rootPath . '/time-bar.php';
 
 ?>
 
@@ -130,5 +130,5 @@ if (isset($_SESSION['errorMessage'])) {
 }
 
 
-include($pathmain. 'footer.php');  // درج فایل فوتر
+include $rootPath . '/footer.php';  // درج فایل فوتر
 ?>

@@ -9,8 +9,7 @@ class User {
 
     // ورود کاربر
     public function login($username, $password) {
-            echo $username . $password;
-        $username = filter_var($username, FILTER_SANITIZE_STRING);
+        $username = trim($username);
 
         $query = "SELECT * FROM users WHERE username = :username";
         $stmt = $this->db->prepare($query);

@@ -1,7 +1,11 @@
 <?php
 session_start();
-session_unset(); // حذف تمام متغیرهای session
-session_destroy(); // بستن session
-header('Location: login.php'); // هدایت به صفحه ورود
+session_unset();
+session_destroy();
+
+$basePath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
+$basePath = preg_replace('#/app/Views/dashboard$#', '', $basePath);
+$basePath = ($basePath === '' || $basePath === '.') ? '' : $basePath;
+
+header('Location: ' . ($basePath ?: '') . '/app/Views/dashboard/login.php');
 exit();
-?>
