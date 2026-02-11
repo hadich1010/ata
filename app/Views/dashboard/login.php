@@ -5,8 +5,12 @@ require_once $rootPath . '/header.php';
 
 session_start();
 
-$basePath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
-$basePath = preg_replace('#/app/Views/dashboard$#', '', $basePath);
+$requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?: '';
+if (preg_match('#^(.*?)/app/(Views|Controllers)/#i', $requestPath, $matches)) {
+    $basePath = rtrim($matches[1], '/\\');
+} else {
+    $basePath = rtrim(dirname($_SERVER['SCRIPT_NAME'] ?? ''), '/\\');
+}
 $basePath = ($basePath === '' || $basePath === '.') ? '' : $basePath;
 
 // بررسی وضعیت ورود کاربر
