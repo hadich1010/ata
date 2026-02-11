@@ -1,66 +1,52 @@
 <?php
-require_once '../models/User.php'; // بارگذاری مدل
+require_once __DIR__ . '/../Models/Database.php';
+require_once __DIR__ . '/../Models/user.php';
 
 class AuthController {
     private $db;
     private $userModel;
+
     public function __construct($db) {
         $this->db = $db;
-        $this->userModel = new User($this->db); // مدل کاربری
+        $this->userModel = new User($this->db);
     }
 
     public function login() {
-        $base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/ata/';
-        // بررسی اینکه آیا فرم ارسال شده است یا نه
+        $basePath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
+        $basePath = preg_replace('#/app/Controllers$#', '', $basePath);
+        $basePath = ($basePath === '' || $basePath === '.') ? '' : $basePath;
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+            $username = $_POST['username'] ?? '';
+            $password = $_POST['password'] ?? '';
 
             $user = $this->userModel->login($username, $password);
 
             if ($user) {
-                // ذخیره سشن
                 session_start();
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['role'] = $user['role'];
-
-                // هدایت به صفحه اصلی
-                $message = ' شما وارد شدید';
-                
-                header('Location: ' . $base_url . 'index.php');   
+                header('Location: ' . ($basePath ?: '') . '/index.php');
                 exit;
-            } else {
-                // در صورت اشتباه بودن اطلاعات کاربری
-                $message =  $base_url ;
-                require_once $_SERVER['DOCUMENT_ROOT'] . '/ata/app/views/dashboard/login.php';
             }
-        } 
-        else {
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/ata/app/views/dashboard/login.php';    
-            }
-     }
+
+            $message = 'نام کاربری یا رمز عبور اشتباه است.';
+            require __DIR__ . '/../Views/dashboard/login.php';
+            return;
+        }
+
+        require __DIR__ . '/../Views/dashboard/login.php';
+    }
 
     public function checkLogin() {
-        if (isset($_SESSION['user_id'])) {
-            return true;
-        }
-        return false;
+        return isset($_SESSION['user_id']);
     }
 }
 
 if (isset($_GET['action']) && $_GET['action'] === 'login') {
-    
-// ایجاد شیء از کلاس Database (اتصال به پایگاه داده)
-$db = new Database();
+    $db = new Database();
+    $conn = $db->getConnection();
 
-// گرفتن اتصال به پایگاه داده
-$conn = $db->getConnection();
-
-// ایجاد شیء از کلاس AuthController و ارسال اتصال به دیتابیس
-$authController = new AuthController($conn);
-
-// فراخوانی متد login
-$authController->login();
+    $authController = new AuthController($conn);
+    $authController->login();
 }
-
-?>

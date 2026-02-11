@@ -1,14 +1,7 @@
-    <!-- jQuery -->
-    
-    <!-- Bootstrap JS (باید بعد از jQuery باشد) -->
-
-    <!-- اضافه کردن JS مربوط به Timepicker -->
-     <!-- لینک به فایل‌های JS -->
-    <script src="/ata/js/jquery-3.5.1.min.js"></script>
-    <script src="/ata/js/bootstrap.min.js"></script>
-    <script src="/ata/dist/jalalidatepicker.js"></script>
-    <!-- اسکریپت‌های سفارشی -->
-    <script src="javascript.js"></script>
+    <script src="<?= htmlspecialchars($baseUrl . '/js/jquery-3.5.1.min.js') ?>"></script>
+    <script src="<?= htmlspecialchars($baseUrl . '/js/bootstrap.min.js') ?>"></script>
+    <script src="<?= htmlspecialchars($baseUrl . '/dist/jalalidatepicker.js') ?>"></script>
+    <script src="<?= htmlspecialchars($baseUrl . '/javascript.js') ?>"></script>
     <script>
         $(document).ready(function() {
         jalaliDatepicker.startWatch({
