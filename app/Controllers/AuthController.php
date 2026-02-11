@@ -12,13 +12,23 @@ class AuthController {
     }
 
     public function login() {
-        $basePath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
-        $basePath = preg_replace('#/app/Controllers$#', '', $basePath);
+        $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?: '';
+        if (preg_match('#^(.*?)/app/(Views|Controllers)/#i', $requestPath, $matches)) {
+            $basePath = rtrim($matches[1], '/\\');
+        } else {
+            $basePath = rtrim(dirname($_SERVER['SCRIPT_NAME'] ?? ''), '/\\');
+        }
         $basePath = ($basePath === '' || $basePath === '.') ? '' : $basePath;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['username'] ?? '';
             $password = $_POST['password'] ?? '';
+
+            if (!$this->db) {
+                $message = 'ارتباط با پایگاه داده برقرار نیست. لطفاً تنظیمات اتصال را بررسی کنید.';
+                require __DIR__ . '/../Views/dashboard/login.php';
+                return;
+            }
 
             $user = $this->userModel->login($username, $password);
 

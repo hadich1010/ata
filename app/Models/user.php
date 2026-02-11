@@ -1,5 +1,6 @@
 <?php
 require_once 'Database.php';
+
 class User {
     private $db;
 
@@ -9,7 +10,11 @@ class User {
 
     // ورود کاربر
     public function login($username, $password) {
-        $username = trim($username);
+        if (!$this->db) {
+            return false;
+        }
+
+        $username = trim((string) $username);
 
         $query = "SELECT * FROM users WHERE username = :username";
         $stmt = $this->db->prepare($query);
@@ -17,11 +22,11 @@ class User {
         $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user && password_verify($password, $user['password'])) {         
+        if ($user && password_verify($password, $user['password'])) {
             return $user; // برمی‌گرداند کاربر در صورت موفقیت
-        } else {
-            return false; // در صورت خطا
         }
+
+        return false; // در صورت خطا
     }
 }
 ?>
